@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.where(nil) # creates an anonymous scope
     @products = @products.keyword(params[:keyword]) if params[:keyword].present?
-    @products = @products.keyword(params[:status]) if params[:status].present?
-    @products = @products.keyword(params[:location]) if params[:location].present?
+    @products = @products.status(params[:status]) if params[:status].present?
+    @products = @products.location(params[:location]) if params[:location].present?
   end
 
   # GET /products/1
